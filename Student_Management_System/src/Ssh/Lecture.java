@@ -3,13 +3,33 @@ package Ssh;
 import java.util.Scanner;
 
 public class Lecture {
-
-	public static void main(String[] args) {
-		Scanner in = new Scanner(System.in);
-		String name = in.next();
-		System.out.println("과목명: " + name);
-		
-
+	//과목명, 담당교수
+	
+	String strName;            //과목명
+	String strProfessor;       //담당교수
+			
+	public Lecture(String name, String professor)  //생성자
+	{
+		this.strName = name;
+		this.strProfessor = professor;
 	}
+	
+	String getName() //접근자
+	{
+		return strName;
+	}
+	void setName(String name) //설정자
+	{
+		this.strName = name;
+	}
+	String getProfessor() //접근자
+	{
+		return strProfessor;
+	}
+	void setProfessor(String professor) //설정자
+	{
+		this.strProfessor = professor;
+	}
+
 
 }
