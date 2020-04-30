@@ -1,5 +1,7 @@
 package Ssh;
 
+import java.util.ArrayList;
+
 public class Student {
 	//학번, 이름, 나이, 성별, 연락처
 	
@@ -8,6 +10,7 @@ public class Student {
 	int Age;          //나이
 	boolean bGender;   //성별 true = 남자, false = 여자
 	String strContact; //연락처
+	
 	
 	public Student(String id, String name, int age, boolean gender, String contact)
 	{

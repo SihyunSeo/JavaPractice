@@ -7,6 +7,10 @@ package Ssh;
 		private String strProfessor;       //담당교수
 		private static int putNum = 0;
 		
+		Student[] students = new Student[100];
+		static int numOfStudent = 0;
+		
+				
 		public Lecture(String name, String professor)  //생성자
 		{
 			this.strName = name;
@@ -32,5 +36,33 @@ package Ssh;
 		void setProfessor(String professor) //설정자
 		{
 			this.strProfessor = professor;
+		}
+		public void AddStudent(Student inform)
+		{
+			students[numOfStudent] = inform; 
+			numOfStudent ++;
+		}
+		void print()
+		{
+			for(int i = 0; i < numOfStudent; i ++)
+			{
+				System.out.printf(students[i].getName() + "  ");
+			}
+			
+		}
+		void printByName(String name)
+		{
+			for(int i = 0; i < numOfStudent; i ++)
+			{
+				if(name.equals(students[i].getName()))
+				{
+					System.out.println();
+					System.out.println(students[i].getID());
+					System.out.println(students[i].getName());
+					System.out.println(students[i].getAge());
+					System.out.println(students[i].getbGender());
+					System.out.println(students[i].getstrContact());
+				}
+			}
 		}
 }
