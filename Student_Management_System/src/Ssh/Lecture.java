@@ -56,12 +56,27 @@ package Ssh;
 			{
 				if(name.equals(students[i].getName()))
 				{
-					System.out.println();
 					System.out.println(students[i].getID());
 					System.out.println(students[i].getName());
 					System.out.println(students[i].getAge());
 					System.out.println(students[i].getbGender());
 					System.out.println(students[i].getstrContact());
+					System.out.println();
+				}
+			}
+		}
+		void printById(String id)
+		{
+			for(int i = 0; i < numOfStudent; i ++)
+			{
+				if(id.equals(students[i].getID()))
+				{
+					System.out.println(students[i].getID());
+					System.out.println(students[i].getName());
+					System.out.println(students[i].getAge());
+					System.out.println(students[i].getbGender());
+					System.out.println(students[i].getstrContact());
+					System.out.println();
 				}
 			}
 		}
