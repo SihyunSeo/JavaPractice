@@ -7,8 +7,8 @@ package Ssh;
 		private String strProfessor;       //담당교수
 		private static int putNum = 0;
 		
-		Student[] students = new Student[100];
-		static int numOfStudent = 0;
+		Student students[] = new Student[100];
+		int numOfStudent;
 		
 				
 		public Lecture(String name, String professor)  //생성자
@@ -37,46 +37,36 @@ package Ssh;
 		{
 			this.strProfessor = professor;
 		}
-		public void AddStudent(Student inform)
+		void AddStudent(Student inform) // 학생 정보 저장
 		{
 			students[numOfStudent] = inform; 
 			numOfStudent ++;
 		}
-		void print()
+		void print() // 수강생 전체 정보 출력
 		{
 			for(int i = 0; i < numOfStudent; i ++)
 			{
-				System.out.printf(students[i].getName() + "  ");
+				students[i].print();
 			}
 			
 		}
-		void printByName(String name)
+		void printByName(String name) // 이름으로 학생정보 찾기
 		{
 			for(int i = 0; i < numOfStudent; i ++)
 			{
 				if(name.equals(students[i].getName()))
 				{
-					System.out.println(students[i].getID());
-					System.out.println(students[i].getName());
-					System.out.println(students[i].getAge());
-					System.out.println(students[i].getbGender());
-					System.out.println(students[i].getstrContact());
-					System.out.println();
+					students[i].print();
 				}
 			}
 		}
-		void printById(String id)
+		void printById(String id) // 학번으로 학생정보 찾기
 		{
 			for(int i = 0; i < numOfStudent; i ++)
 			{
 				if(id.equals(students[i].getID()))
 				{
-					System.out.println(students[i].getID());
-					System.out.println(students[i].getName());
-					System.out.println(students[i].getAge());
-					System.out.println(students[i].getbGender());
-					System.out.println(students[i].getstrContact());
-					System.out.println();
+					students[i].print();
 				}
 			}
 		}
