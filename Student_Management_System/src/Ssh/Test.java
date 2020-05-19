@@ -20,9 +20,9 @@ public class Test {
 		lect1.AddStudent(student3);
 		lect1.AddStudent(student4);
 		
-		//lect1.print();
+		lect1.print();
 		
-		Scanner in = new Scanner(System.in);
+		/*Scanner in = new Scanner(System.in);
 		System.out.printf("이름을 입력하시오: ");
 		String inName = in.next();
 		System.out.println("입력받은 학생의 정보입니다.");
@@ -32,7 +32,7 @@ public class Test {
 		System.out.printf("학번을 입력하시오: ");
 		String in1Id = in1.next();
 		System.out.println("입력받은 학생의 정보입니다.");
-		lect1.printById(in1Id);
+		lect1.printById(in1Id);*/
 	}
 
 }

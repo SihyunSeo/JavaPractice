@@ -5,9 +5,9 @@ import java.util.ArrayList;
 public class Lecture {
 		
 		//과목명, 담당교수
-		private String strName;            //과목명
-		private String strProfessor;       //담당교수
-		private static int putNum = 0;
+		String strName;            //과목명
+		String strProfessor;       //담당교수
+		static int putNum = 0;
 		
 		ArrayList<Student> arrayStudents = new ArrayList<Student>();
 		int numOfStudent;
@@ -48,7 +48,7 @@ public class Lecture {
 		{
 			for(int i = 0; i < numOfStudent; i ++)
 			{
-				arrayStudents.get(i);
+				arrayStudents.get(i).print();;
 			}
 			
 		}
