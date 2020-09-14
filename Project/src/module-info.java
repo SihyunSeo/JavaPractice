@@ -1,3 +1,3 @@
-module book_practices {
+module Project {
 	requires java.desktop;
 }
