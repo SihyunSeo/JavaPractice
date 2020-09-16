@@ -1,6 +1,7 @@
 package questWonji;
 
 import java.awt.BorderLayout;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -23,7 +24,7 @@ public class ShowTop extends JFrame {
 	JTextArea ta1;
 	JTextArea ta2;
 	JButton b1;
-	static ArrayList<String> list = new ArrayList<>();
+	ArrayList<String> list = new ArrayList<>();
 	
 	public ShowTop(JFrame frame) {
 		String newFolderPath = "";
@@ -32,10 +33,11 @@ public class ShowTop extends JFrame {
 		l1 = new JLabel("입력된 숫자");
 		panel = new JPanel(new GridLayout(2, 0));
 		
-		ta1 = new JTextArea(1, 10);
-		ta2 = new JTextArea(1, 10);
+		ta1 = new JTextArea(2, 15);
+		ta2 = new JTextArea(2, 15);
+
 		b1 = new JButton("파일 선택");
-		b1.setPreferredSize(new Dimension(90, 20));
+		//b1.setPreferredSize(new Dimension(90, 20));
 		
 		b1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -75,12 +77,12 @@ public class ShowTop extends JFrame {
 					}
 				} catch (IOException a) {
 				}
-				
-				list = numList;
+				for(int i = 0; i < numList.size(); i ++)
+				{
+					list.add(i, numList.get(i));
+				}
 			}
 		});
-		
-		System.out.println(list);
 		
 		p1.add(ta1);
 		p1.add(b1);
@@ -90,7 +92,7 @@ public class ShowTop extends JFrame {
 		
 		panel.add(p1);
 		panel.add(p2);
-		frame.add(panel, BorderLayout.NORTH);
+		frame.add(panel, BorderLayout.CENTER);
 	}
 
 

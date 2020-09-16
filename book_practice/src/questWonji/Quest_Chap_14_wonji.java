@@ -18,12 +18,11 @@ public class Quest_Chap_14_wonji extends JFrame{
 		JFrame frame=new JFrame();
 		frame.setTitle("숫자변환기");
 		
-		frame.setLayout(new BorderLayout(10, 10));
-		
+		frame.setLayout(new GridLayout(2,0));
 		ShowTop st = new ShowTop(frame);
-		//ShowCenter sc = new ShowCenter(frame, st.list1);
+		ShowCenter sc = new ShowCenter(frame, st.list);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setSize(300, 400);
+		frame.setSize(400, 300);
 		frame.setVisible(true);
 	}
 }
