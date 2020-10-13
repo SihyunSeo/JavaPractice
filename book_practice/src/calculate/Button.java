@@ -1,36 +1,71 @@
 package calculate;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 
-public class Button extends JFrame {
+public class Button extends JFrame{
 	JPanel p1, p2, p3, p4, p5;
 	JPanel panel;
-	JButton bOn, bOff, bPlus, bMinus, bMulti, bDiv, bDot, bCal, num1, num2, num3, num4, num5, num6, num7, num8, num9, num0;
+	
 	Button(JFrame frame){
-		bOn = new JButton("on");
-		bOff = new JButton("off");
-		bPlus = new JButton("+");
-		bMinus = new JButton("-");
-		bMulti = new JButton("x");
-		bDiv = new JButton("÷");
-		bDot = new JButton(".");
-		bCal = new JButton("=");
-		num1 = new JButton("1");
-		num2 = new JButton("2");
-		num3 = new JButton("3");
-		num4 = new JButton("4");
-		num5 = new JButton("5");
-		num6 = new JButton("6");
-		num7 = new JButton("7");
-		num8 = new JButton("8");
-		num9 = new JButton("9");
-		num0 = new JButton("0");
+		Top top = new Top(frame);
+		ArrayList<String> saveNum = new ArrayList<String>();
+		String[] operatorName = {"+", "-", "x", "÷", ".", "=", "on", "off"};
+		JButton[] operator = new JButton[operatorName.length];
+		for(int i = 0; i < operatorName.length; i ++)
+		{
+			operator[i] = new JButton(operatorName[i]);
+		}
+		JButton[] num = new JButton[10];
+		for(int i = 0; i < 10; i ++)
+		{
+			num[i] = new JButton("" + i);
+		}
 		
-		bMinus.setPreferredSize(new Dimension(42, 28));
-		bDot.setPreferredSize(new Dimension(42, 28));
-		bDiv.setPreferredSize(new Dimension(42, 28));
-		bMulti.setPreferredSize(new Dimension(42, 28));
+		class ButtonAction implements ActionListener
+		{
+			public void actionPerformed(ActionEvent e) {
+				String ba = e.getActionCommand();
+				if(ba == "+")
+				{
+					saveNum.add(top.ta1.getText());
+					top.ta1.setText("");
+					System.out.println(saveNum);
+				}
+				top.ta1.setText(top.ta1.getText() + e.getActionCommand());
+				if(ba == "off")
+				{
+					top.ta1.setText("");
+				}
+				else if(ba == "on")
+				{
+					top.ta1.setText("연산을 입력해주세요.");
+				}
+				/*else if(e.getActionCommand() == "+")
+				{
+					saveNum.add(top.ta1.getText());
+					System.out.println(saveNum);
+				}*/
+			}
+			
+		}
+		for(int i = 0; i < 10; i ++)
+		{
+			num[i].addActionListener(new ButtonAction());
+		}
+		
+		for(int i = 0; i < operatorName.length; i ++)
+		{
+			operator[i].addActionListener(new ButtonAction());
+		}
+		
+		//bMinus.setPreferredSize(new Dimension(42, 28));
+		//bDot.setPreferredSize(new Dimension(42, 28));
+		//bDiv.setPreferredSize(new Dimension(42, 28));
+		//bMulti.setPreferredSize(new Dimension(42, 28));
 		
 		p1 = new JPanel();
 		p2 = new JPanel();
@@ -39,28 +74,28 @@ public class Button extends JFrame {
 		p5 = new JPanel();
 		panel = new JPanel(new GridLayout(5, 0));
 		
-		p1.add(bOn);
-		p1.add(bOff);
+		p1.add(operator[6]);
+		p1.add(operator[7]);
 		
-		p2.add(num7);
-		p2.add(num8);
-		p2.add(num9);
-		p2.add(bPlus);
+		p2.add(num[7]);
+		p2.add(num[8]);
+		p2.add(num[9]);
+		p2.add(operator[0]);
 		
-		p3.add(num4);
-		p3.add(num5);
-		p3.add(num6);
-		p3.add(bMinus);
+		p3.add(num[4]);
+		p3.add(num[5]);
+		p3.add(num[6]);
+		p3.add(operator[1]);
 		
-		p4.add(num1);
-		p4.add(num2);
-		p4.add(num3);
-		p4.add(bMulti);
+		p4.add(num[1]);
+		p4.add(num[2]);
+		p4.add(num[3]);
+		p4.add(operator[2]);
 		
-		p5.add(num0);
-		p5.add(bDot);
-		p5.add(bCal);
-		p5.add(bDiv);
+		p5.add(num[0]);
+		p5.add(operator[4]);
+		p5.add(operator[5]);
+		p5.add(operator[3]);
 		
 		panel.add(p1);
 		panel.add(p2);

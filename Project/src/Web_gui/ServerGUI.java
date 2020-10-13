@@ -64,8 +64,7 @@ public class ServerGUI extends JFrame {
 				String path = ta1.getText();
 				ta1.append("\n");
 				t2.setText("");
-				
-				Communication communication = new Communication(cSocket,serverFolder,path);
+
 			}
 		});
 	}
