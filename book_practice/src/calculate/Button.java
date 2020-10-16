@@ -22,7 +22,7 @@ public class Button extends JFrame{
 		JButton[] num = new JButton[10];
 		for(int i = 0; i < 10; i ++)
 		{
-			num[i] = new JButton("" + i);
+			num[i] = new JButton(Integer.toString(i));
 		}
 		
 		class ButtonAction implements ActionListener
@@ -44,11 +44,15 @@ public class Button extends JFrame{
 				{
 					top.ta1.setText("연산을 입력해주세요.");
 				}
-				/*else if(e.getActionCommand() == "+")
-				{
-					saveNum.add(top.ta1.getText());
-					System.out.println(saveNum);
-				}*/
+			}
+			
+			public void operatorCal(String string) {
+				double getNum = lastNum();
+				
+			}
+			public double lastNum() {
+				String input = top.ta1.getText();
+				return Double.parseDouble(input);
 			}
 			
 		}
