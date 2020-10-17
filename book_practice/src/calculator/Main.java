@@ -132,16 +132,27 @@ public class Main extends JFrame implements ActionListener {
 		}
 		if (e.getSource() == operator[0])//+버튼
 		{
-			functions = "+";
-			setFrontNum();
-			setSaveNum();
-			tf1.setText("");
+			if(tf1.getText().equals(""))
+			{
+				tf1.setText("");
+			}
+			else
+			{
+				functions = "+";
+				setFrontNum();
+				setSaveNum();
+				tf1.setText("");
+			}
 		}
 		if (e.getSource() == operator[1])//-버튼
 		{
 			if(tf1.getText().equals(""))// 음수계산
 			{
 				tf1.setText(tf1.getText() + e.getActionCommand());
+			}
+			else if(tf1.getText().equals("-"))
+			{
+				tf1.setText("");
 			}
 			else
 			{
@@ -153,20 +164,41 @@ public class Main extends JFrame implements ActionListener {
 		}	
 		if (e.getSource() == operator[2])//x버튼
 		{
-			functions = "x";
-			setFrontNum();
-			setSaveNum();
-			tf1.setText("");
+			if(tf1.getText().equals(""))
+			{
+				tf1.setText("");
+			}
+			else
+			{
+				functions = "x";
+				setFrontNum();
+				setSaveNum();
+				tf1.setText("");
+			}
 		}	
 		if (e.getSource() == operator[3])//÷버튼
 		{
-			functions = "÷";
-			setFrontNum();
-			setSaveNum();
-			tf1.setText("");
+			if(tf1.getText().equals(""))
+			{
+				tf1.setText("");
+			}
+			else
+			{
+				functions = "÷";
+				setFrontNum();
+				setSaveNum();
+				tf1.setText("");
+			}
 		}	
 		if (e.getSource() == operator[4])//.버튼
-			tf1.setText(tf1.getText() + ".");
+			if(tf1.getText().contains(e.getActionCommand()))
+			{
+				tf1.setText(tf1.getText());
+			}
+			else
+			{
+				tf1.setText(tf1.getText() + e.getActionCommand());
+			}
 		
 		if (e.getSource() == operator[6])//on버튼 기능
 			tf1.setText("연산을 입력해 주세요.");
