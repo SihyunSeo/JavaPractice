@@ -64,22 +64,31 @@ public class ServerRoot extends JFrame implements ActionListener{
       if(e.getSource() == folderB)
       {
          fileRoot();
+         folderTf.setText(folderPath);
       }
       else if(e.getSource() == fileB)
       {
          mainFile();
+         fileTf.setText(fileName);
       }
       else if(e.getSource() == runB)
-      {
-         folderTf.setText(folderPath);
-         fileTf.setText(fileName);
+      { 
+    	 
          if(b.getText().equals("실행"))
          {
+        	folderTf.setEditable(false);
+        	fileTf.setEditable(false);
+        	folderB.setEnabled(false);
+        	fileB.setEnabled(false);
             b.setText("종료");
          }
          else if(b.getText().equals("종료"))
          {
-            System.exit(0);
+        	folderTf.setEditable(true);
+         	fileTf.setEditable(true);
+         	folderB.setEnabled(true);
+         	fileB.setEnabled(true);
+        	b.setText("실행");
          }
       }
    }
