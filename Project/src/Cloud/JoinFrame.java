@@ -1,4 +1,4 @@
-package Web_gui;
+package Cloud;
 
 import java.awt.*;
 import javax.swing.*;
@@ -21,21 +21,6 @@ import java.io.IOException;
 		private JTextField N_Email;
 		private JTextField N_Phone;
 
-		//gui창 띄우기
-		/*public static void main(String[] args) {
-			EventQueue.invokeLater(new Runnable() {
-				public void run() {
-					try {
-						JoinFrame frame = new JoinFrame();
-						
-					} catch (Exception e) {
-						e.printStackTrace();
-					}
-				}
-			});
-		}*/
-
-		//프레임 생성
 		public JoinFrame() {
 			setTitle("Sign up");
 			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

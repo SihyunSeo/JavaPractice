@@ -18,7 +18,7 @@ public class ServerRoot extends JFrame implements ActionListener{
       setLayout(new BorderLayout());
       setTitle("Server");
       setSize(350, 150);
-      setResizable(false);
+      setResizable(true);
       setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       
       north = new JPanel(new GridLayout(2,0));
