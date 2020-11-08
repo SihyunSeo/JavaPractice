@@ -1,8 +1,10 @@
 package Cloud;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class SignIn extends JFrame{
+public class SignIn extends JFrame implements ActionListener{
 	SignIn() {
 		setLayout(new BorderLayout());
 		setSize(400, 300);
@@ -25,7 +27,9 @@ public class SignIn extends JFrame{
 		JTextField passwordTf = new JTextField(20);
 		
 		JButton signIn = new JButton("로그인");
+		signIn.addActionListener(this);
 		JButton signUp = new JButton("회원가입");
+		signUp.addActionListener(this);
 		
 		idP.add(idL);
 		idP.add(idTf);
@@ -45,7 +49,19 @@ public class SignIn extends JFrame{
 		setVisible(true);
 	}
 	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		String button = e.getActionCommand();
+		if(button.equals("회원가입"))
+		{
+			new JoinFrame();
+		}
+		
+	}
+	
 	public static void main(String[] mrg) {
 		new SignIn();
 	}
+
+	
 }

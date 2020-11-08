@@ -15,11 +15,7 @@ import java.io.IOException;
 		private JPanel contentPane;
 		private JLabel Join;
 		private JButton joinComplete;
-		private JTextField N_ID;
-		private JTextField N_Password;
-		private JTextField N_Name;
-		private JTextField N_Email;
-		private JTextField N_Phone;
+		private JTextField N_ID, N_Password, N_Name, N_Email, N_Phone;
 
 		public JoinFrame() {
 			setTitle("Sign up");
@@ -92,24 +88,33 @@ import java.io.IOException;
 			joinComplete.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent T) {
-				String id = N_ID.getText() + "/";
-				String password = N_Password.getText() + "/";
-				String name = N_Name.getText() + "/";
-				String email = N_Email.getText() + "/";
-				String phone = N_Phone.getText() + "\r\n";
-				
-				String inform = id + password + name + email + phone;
-				
-				try {
-					BufferedWriter bos = new BufferedWriter(new FileWriter("회원정보.txt", true));
-					
-					SaveFile("C:\\Users\\Sihyun\\Desktop\\gitPractice\\JavaPractice\\Project\\회원정보.txt",inform);
-					JOptionPane.showMessageDialog(null, "회원가입이 완료되었습니다.");
-					dispose();
-				}catch (Exception ex) {
-					JOptionPane.showMessageDialog(null, "회원가입에 실패하였습니다.");
+				if(N_ID.getText().equals("") || N_Password.getText().equals("") ||  N_Name.getText().equals("") || N_Email.getText().equals("") || N_Phone.getText().equals(""))
+				{
+					JOptionPane.showMessageDialog(null, "정보를  입력해 주세요.");
 				}
+				else
+				{
+					String id = N_ID.getText() + "/";
+					String password = N_Password.getText() + "/";
+					String name = N_Name.getText() + "/";
+					String email = N_Email.getText() + "/";
+					String phone = N_Phone.getText() + "\r\n";
+					String inform = id + password + name + email + phone;
+					
+					try 
+					{
+						BufferedWriter bos = new BufferedWriter(new FileWriter("회원정보.txt", true));
+						SaveFile("C:\\Users\\Sihyun\\Desktop\\회원정보.txt",inform);
+						JOptionPane.showMessageDialog(null, "회원가입이 완료되었습니다.");
+						dispose();
+					}catch (Exception ex) 
+					{
+						JOptionPane.showMessageDialog(null, "회원가입에 실패하였습니다.");
+					}
+				}
+				
 			}
+			
 			public void SaveFile(String path,String content) {
 				FileOutputStream opStream;
 				try {
@@ -122,9 +127,7 @@ import java.io.IOException;
 				} catch (FileNotFoundException e) {
 					e.printStackTrace();
 				}
-				
 			}
-			});
-		}
+		});
 	}
-
+}
