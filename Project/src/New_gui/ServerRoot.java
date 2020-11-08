@@ -115,11 +115,11 @@ public class ServerRoot extends JFrame implements ActionListener{
    public void mainFile()
    {
       JFileChooser chooser = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
-      chooser.setCurrentDirectory(new File("/"));
+      chooser.setCurrentDirectory(new File("" + folderTf.getText()));
       chooser.setAcceptAllFileFilterUsed(true);
       chooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
-      FileNameExtensionFilter filter = new FileNameExtensionFilter("Binary File", "cd11"); // filter 확장자 추가
-        chooser.setFileFilter(filter); // 파일 필터를 추가
+      //FileNameExtensionFilter filter = new FileNameExtensionFilter("Binary File", "cd11"); // filter 확장자 추가
+        //chooser.setFileFilter(filter); // 파일 필터를 추가
         int returnVal = chooser.showOpenDialog(null); // 열기용 창 오픈
         
         if(returnVal == JFileChooser.APPROVE_OPTION) 
